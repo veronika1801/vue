@@ -1,15 +1,13 @@
 let app = new Vue({
     el: '#app',
     data: {
-        product: "Socks"
+        product: "Socks",
+        image: "../assets/vmSocks-blue-onWhite.jpg",
+        altText: "A pair of socks"
+
     }
  })
- let desc = new Vue({
-    el: '#desc',
-    data: {
-        description: "A pair of warm, fuzzy socks"
-    }
- })
+ 
  
 
  
