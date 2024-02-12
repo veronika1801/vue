@@ -1,17 +1,19 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport"
-         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <script defer src="vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="vue.js"></script>
     <script defer src="main.js"></script>
     <link rel="stylesheet" href="../css/main.css">
 
 
-   <title>Product App</title>
+    <title>Product App</title>
 </head>
+
 <body>
     <div id="app">
         <div class="product">
@@ -24,37 +26,34 @@
                 <p v-if="inventory > 10">In stock</p>
                 <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
                 <p v-else>Out of stock</p>
-                <span v-if="inventory > 10" >The sale hasn't started</span>
+                <span v-if="inventory > 10">The sale hasn't started</span>
                 <p v-else-if="inventory <= 10 && inventory > 0">SALE!</p>
                 <ul>
                     <li v-for="detail in details">{{ detail }}</li>
-                 </ul>
-                    
-                 <div
-                    class="color-box"
-                    v-for="variant in variants"
-                    :key="variant.variantId"
-                    :style="{ backgroundColor:variant.variantColor }"
-                    @mouseover="updateProduct(variant.variantImage)">
-                </div>    
-                 <ul>
+                </ul>
+
+                <div class="color-box" v-for="variant in variants" :key="variant.variantId"
+                    :style="{ backgroundColor:variant.variantColor }" @mouseover="updateProduct(variant.variantImage)">
+                </div>
+                <ul>
                     <li v-for="size in sizes">{{ size }}</li>
-                 </ul>
-                 <div class="cart">
+                </ul>
+                <div class="cart">
                     <p>Cart({{ cart }})</p>
-                 </div>
-                 <button v-on:click="addToCart">Add to cart</button>
-                 <button v-on:click="deleteFromCart">delete cart</button>
-             
-                 
+                </div>
+                <button v-on:click="addToCart" :disabled="!inStock" :class="{ disabledButton: !inStock }">Add to cart</button>
+                <button v-on:click="deleteFromCart">delete cart</button>
+
+
 
 
             </div>
-            
+
         </div>
-     </div>
-     
-     
-     
+    </div>
+
+
+
 </body>
+
 </html>
