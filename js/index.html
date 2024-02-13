@@ -17,16 +17,16 @@
 <body>
     <div id="app">
         <div class="cart">
-            <p>Cart({{ cart.length }})</p>
+            <p>Cart</p>
             <div v-for="good in cart" class="goodCart">
                 <p>Cart:{{ good.name }}</p>
                 <p>Count:{{ good.count }}</p>
                 <button v-on:click="addCount(good)" class="cartButton">+</button>
-                <button v-on:click="removeCount(good)" class="cartButton">-</button>
+                <button v-on:click="deleteCount(good)" class="cartButton">-</button>
              </div>
         </div>
-        <product :premium="premium" @add-to-cart="updateCart" @delete-to-cart="deleteCart" @remove-to-cart="removeCart"
-        @add-to-count="addCount" @remove-to-count="removeCount"></product>
+        <product :premium="premium" @add-to-cart="updateCart" @delete-to-cart="deleteCart" @remove-to-cart="deleteCart"
+        @add-to-count="addCount" @remove-to-count="deleteCount"></product>
      </div>
      
      

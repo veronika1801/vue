@@ -290,11 +290,11 @@ let app = new Vue({
             }
             },
         
-        removeCart(id){
+        deleteCart(id){
             this.cart.shift(id)
         },
     
-        removeCount(id) {
+        deleteCount(id) {
             id.count--
             if(id.count <= 0){
                 this.cart.shift(id)
